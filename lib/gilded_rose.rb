@@ -54,6 +54,8 @@ class GildedRose
     @items.each do | item |
       if item.name == "Backstage passes to a TAFKAL80ETC concert"
         item.quality = backstage_pass(item)
+      elsif item.name == "Sulfuras, Hand of Ragnaros"
+        next
       end
     end
 
@@ -69,6 +71,10 @@ class GildedRose
     else
       0
     end
+  end
+
+  def sulfuras(item)
+    
   end
 end
 
