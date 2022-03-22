@@ -4,7 +4,10 @@ describe GildedRose do
 
   describe "#update_quality" do
     before do
-      @items = [Item.new("foo", 10, 10), Item.new("bar", 10, 0)]
+      @items = [
+        Item.new("foo", 10, 10), 
+        Item.new("bar", 10, 0), 
+        Item.new("milk", 0, 10)]
       GildedRose.new(@items).update_quality()
     end
     it "does not change the name" do
@@ -21,6 +24,10 @@ describe GildedRose do
 
     it "quality never goes below zero" do
       expect(@items[1].quality).not_to eq -1
+    end
+
+    it "once sell by date passes, quality drops twice as much" do
+      expect(@items[2].quality).to eq 8
     end
   end
 
