@@ -56,6 +56,8 @@ class GildedRose
         item.quality = backstage_pass(item)
       elsif item.name == "Sulfuras, Hand of Ragnaros"
         next
+      elsif item.name == "Aged Brie"
+        item.quality += 1
       end
     end
 
@@ -71,10 +73,6 @@ class GildedRose
     else
       0
     end
-  end
-
-  def sulfuras(item)
-    
   end
 end
 
