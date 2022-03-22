@@ -9,7 +9,8 @@ describe GildedRose do
         Item.new("bar", 10, 0), 
         Item.new("milk", 0, 10), 
         Item.new("gold", 10, 51), 
-        Item.new("Aged Brie", 10, 10)]
+        Item.new("Aged Brie", 10, 10), 
+        Item.new("Sulfuras, Hand of Ragnaros", 10, 10)]
       GildedRose.new(@items).update_quality()
     end
     it "does not change the name" do
@@ -38,6 +39,11 @@ describe GildedRose do
 
     it "aged brie goes up in quality" do
       expect(@items[4].quality).to eq 11
+    end
+
+    it "sulfuras doesn't need to be sold and doesn't decrease in quality" do
+      expect(@items[5].quality).to eq 10
+      expect(@items[5].sell_in).to eq 10
     end
   end
 
