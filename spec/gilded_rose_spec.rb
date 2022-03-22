@@ -8,7 +8,8 @@ describe GildedRose do
         Item.new("foo", 10, 10), 
         Item.new("bar", 10, 0), 
         Item.new("milk", 0, 10), 
-        Item.new("gold", 10, 51)]
+        Item.new("gold", 10, 51), 
+        Item.new("Aged Brie", 10, 10)]
       GildedRose.new(@items).update_quality()
     end
     it "does not change the name" do
@@ -33,6 +34,10 @@ describe GildedRose do
 
     it "quality can never go above 50" do
       expect(@items[3].quality).to eq 50
+    end
+
+    it "aged brie goes up in quality" do
+      expect(@items[4].quality).to eq 11
     end
   end
 
